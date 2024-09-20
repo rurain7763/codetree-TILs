@@ -5,20 +5,22 @@ using namespace std;
 
 int solve(int n, vector<int>& selected) {
     if(selected.size() == n) {
-        unordered_map<int, int> ma;
-        for(int v : selected) ma[v]++;
-        
-        if(ma.size() == 1) {
-            return n % selected[0] ? 0 : 1;
-        } else {
-            for(pair<int, int> pa : ma) {
-                if(pa.first != pa.second) {
+        int cur = selected[0];
+        int cur_cnt = 1;
+        for(int i = 1; i < selected.size(); i++) {
+            if(selected[i] == cur) {
+                cur_cnt++;
+            } else {
+                if(cur_cnt == cur || cur_cnt % cur == 0) {
+                    cur = selected[i];
+                    cur_cnt = 1;
+                } else {
                     return 0;
                 }
             }
         }
 
-        return 1;
+        return cur_cnt == cur || cur_cnt % cur == 0 ? 1 : 0;
     }
 
     int ret = 0;
