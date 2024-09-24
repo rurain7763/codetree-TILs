@@ -1,15 +1,17 @@
 #include <iostream>
 using namespace std;
 
+typedef long long ll;
+
 int main() {
     int n;
     cin >> n;
-    int arr[4] = {0};
+    ll arr[4] = {0};
     for(int i = 0; i < 4; i++) {
         string str;
         cin >> str;
         for(int j = 1; j <= n; j++) {
-            int v;
+            ll v;
             cin >> v;
             arr[i] += v;
         }
