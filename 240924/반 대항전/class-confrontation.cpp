@@ -4,7 +4,7 @@ using namespace std;
 int main() {
     int n;
     cin >> n;
-    int arr[4] = {0};
+    int arr[] = {0, 0, 0, 0};
     for(int i = 0; i < 4; i++) {
         string str;
         cin >> str;
