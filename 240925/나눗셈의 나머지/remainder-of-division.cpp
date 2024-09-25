@@ -10,7 +10,7 @@ int main() {
         a /= b;
     }
     int ans = 0;
-    for(int i = 0; i < 1001; i++) {
+    for(int i = 0; i < 10; i++) {
         ans += freq[i] * freq[i];
     }
     cout << ans;
