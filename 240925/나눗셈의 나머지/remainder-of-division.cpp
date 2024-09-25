@@ -4,7 +4,7 @@ using namespace std;
 int main() {
     int a, b;
     cin >> a >> b;
-    int freq[1001] = {0};
+    int freq[10] = {0};
     while(a > 1) {
         freq[a % b]++;
         a /= b;
