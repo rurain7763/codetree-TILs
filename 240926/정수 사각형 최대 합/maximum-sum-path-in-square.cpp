@@ -3,11 +3,13 @@
 using namespace std;
 
 int n;
+int dp[100][100];
 int solve(vector<vector<int>>& bo, int x, int y) {
     if(x >= n || y >= n) return 0;
+    if(dp[y][x]) return dp[y][x];
     int ret = solve(bo, x + 1, y) + bo[y][x];
     ret = max(ret, solve(bo, x, y + 1) + bo[y][x]);
-    return ret;
+    return dp[y][x] = ret;
 }
 
 int main() {
