@@ -5,11 +5,15 @@ int main() {
     string str;
     string sub;
     cin >> str >> sub;
-    int pos;
     int ans = 0;
-    while((pos = str.find(sub)) != string::npos) {
-        str.erase(pos, sub.size());
-        ans++;
+    for(int i = 0; i < str.size(); i++) {
+        if(str[i] == sub[0] && str.size() - i >= sub.size()) {
+            int j;
+            for(j = 1; j < sub.size(); j++) {
+                if(str[i + j] != sub[j]) break;
+            }
+            if(j == sub.size()) ans++;
+        }
     }
     cout << ans;
     return 0;
