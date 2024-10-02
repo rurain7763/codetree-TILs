@@ -7,11 +7,12 @@ int main() {
     int n;
     cin >> n;
     vector<int> arr(n);
-    int digitCnt = 0;
+    int maxi = 0;
     for(int i = 0; i < n; i++) {
         cin >> arr[i];
-        digitCnt = max(digitCnt, (int)log10(arr[i]) + 1);
+        maxi = max(maxi, arr[i]);
     }
+    int digitCnt = (int)log10(maxi) + 1;
     int pos = 1;
     for(int i = digitCnt; i > 0; i--) {
         vector<vector<int>> newArr(10);
@@ -19,10 +20,10 @@ int main() {
             int digit = (arr[j] / pos) % 10;
             newArr[digit].push_back(arr[j]);
         }
-        arr.clear();
+        int idx = 0;
         for(int j = 0; j < 10; j++) {
             for(int k = 0; k < newArr[j].size(); k++) {
-                arr.push_back(newArr[j][k]);
+                arr[idx++] = newArr[j][k];
             }
         }
         pos *= 10;
