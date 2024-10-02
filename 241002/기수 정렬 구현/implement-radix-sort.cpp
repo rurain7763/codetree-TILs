@@ -14,8 +14,8 @@ int main() {
     }
     int digitCnt = (int)log10(maxi) + 1;
     int pos = 1;
+    vector<vector<int>> newArr(10);
     for(int i = digitCnt; i > 0; i--) {
-        vector<vector<int>> newArr(10);
         for(int j = 0; j < arr.size(); j++) {
             int digit = (arr[j] / pos) % 10;
             newArr[digit].push_back(arr[j]);
@@ -25,6 +25,7 @@ int main() {
             for(int k = 0; k < newArr[j].size(); k++) {
                 arr[idx++] = newArr[j][k];
             }
+            newArr[j].clear();
         }
         pos *= 10;
     }
